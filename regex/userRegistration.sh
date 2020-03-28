@@ -47,7 +47,7 @@ if [[ $password =~ $passwordpattern1 ]]
 then
         echo "Valid"
 else
-        echo "Invalid"
+        echo "Invalid,Please re-enter your password""
 	rule1
 fi
 }
