@@ -28,4 +28,13 @@ then
 else
         echo "Invalid"
 fi
+echo "Enter you mobile number"
+read number
+numberpattern="^[\+][0-9]{2}[ ][0-9]{10}$"
+if [[ $number =~ $numberpattern ]]
+then
+        echo "Valid"
+else
+        echo "Invalid"
+fi
 
