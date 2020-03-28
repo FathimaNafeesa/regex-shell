@@ -1,3 +1,4 @@
+
 #!/bin/bash -x
 shopt -s extglob
 echo "Enter your First name"
@@ -45,10 +46,21 @@ read password
 passwordpattern1=[0-9a-zA-Z]{8,}$
 if [[ $password =~ $passwordpattern1 ]]
 then
-        echo "Valid"
+        rule2
 else
-        echo "Invalid,Please re-enter your password""
+        echo "Invalid,Please re-enter your password"
 	rule1
 fi
 }
+function rule2 {
+passwordpattern2=[A-Z]{1,}
+if [[ $password =~ $passwordpattern2 ]]
+then
+        echo "Valid"
+else
+        echo "Invalid,Please re-enter your password"
+        rule1
+fi
+}
 rule1
+
