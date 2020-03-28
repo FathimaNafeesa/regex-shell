@@ -43,7 +43,7 @@ fi
 function rule1 {
 echo "Enter your Password"
 read password
-passwordpattern1=[0-9a-zA-Z]{8,}$
+passwordpattern1="[0-9a-zA-Z!@#$%^&*]{8,}"
 if [[ $password =~ $passwordpattern1 ]]
 then
         rule2
@@ -64,13 +64,25 @@ fi
 }
 
 function rule3 {
-passwordpattern3=[0-9]{1,}
+passwordpattern3="[0-9]{1,}"
 if [[ $password =~ $passwordpattern3 ]]
 then
-        echo "valid"
+        rule4
 else
 	echo "Invalid,Please re-enter your password(should have atleast 1 number)"
         rule1 
+fi
+}
+
+
+function rule4 {
+passwordpattern4="[!@#$%^&*()_+]{1}"
+if [[ $password =~ $passwordpattern4 ]]
+then
+        echo "valid"
+else
+        echo "Invalid,Please re-enter your password (should have exactly one special character) "
+        rule1
 fi
 }
 rule1
