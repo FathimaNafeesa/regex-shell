@@ -48,7 +48,7 @@ if [[ $password =~ $passwordpattern1 ]]
 then
         rule2
 else
-        echo "Invalid,Please re-enter your password"
+        echo "Invalid,Please re-enter your password (should have atleast 8 characters)"
 	rule1
 fi
 }
@@ -56,11 +56,21 @@ function rule2 {
 passwordpattern2=[A-Z]{1,}
 if [[ $password =~ $passwordpattern2 ]]
 then
-        echo "Valid"
+        rule3
 else
-        echo "Invalid,Please re-enter your password"
+        echo "Invalid,Please re-enter your password(should have atleast 1 capital letter)"
         rule1
 fi
 }
-rule1
 
+function rule3 {
+passwordpattern3=[0-9]{1,}
+if [[ $password =~ $passwordpattern3 ]]
+then
+        echo "valid"
+else
+	echo "Invalid,Please re-enter your password(should have atleast 1 number)"
+        rule1 
+fi
+}
+rule1
