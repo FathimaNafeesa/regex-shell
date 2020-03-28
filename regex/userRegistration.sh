@@ -1,44 +1,54 @@
 
 #!/bin/bash -x
 shopt -s extglob
+function enterfname {
 echo "Enter your First name"
 read firstname
 namepattern="^[A-Z][a-z]{2,}$"
 if [[ $firstname =~ $namepattern ]]
 then
-	echo "Valid"
+	enterlname
 else
-	echo "Invalid"
+	echo "Invalid,please re-enter you first name"
+	enterfname
 fi
+}
+function enterlname {
 echo "Enter your Last name"
 read lastname
 namepattern="^[A-Z][a-z]{2,}$"
 if [[ $lastname =~ $namepattern ]]
 then
-        echo "Valid"
+        entermail
 else
-        echo "Invalid"
+        echo "Invalid,please re-enter your last name"
+	enterlname
 fi
-
+}
+function entermail {
 echo "Enter your email id"
 read email
 emailpattern="^([a-z]+)(\.[a-z0-9_\+\-]+)?@([a-z]+)\.([a-z]{2,4})(\.[a-z]{2}))?$"
 if [[ $email =~ $emailpattern ]]
 then
-        echo "Valid"
+        entermobile
 else
-        echo "Invalid"
+        echo "Invalid,please re-enter your mail id"
+	entermail
 fi
+}
+function entermobile {
 echo "Enter you mobile number"
 read number
 numberpattern="^[\+][0-9]{2}[ ][0-9]{10}$"
 if [[ $number =~ $numberpattern ]]
 then
-        echo "Valid"
+        rule1
 else
-        echo "Invalid"
+        echo "Invalid,please re-enter your phone number"
+	entermobile
 fi
-
+}
 
 function rule1 {
 echo "Enter your Password"
@@ -85,4 +95,5 @@ else
         rule1
 fi
 }
-rule1
+
+enterfname
