@@ -38,3 +38,17 @@ else
         echo "Invalid"
 fi
 
+
+function rule1 {
+echo "Enter your Password"
+read password
+passwordpattern1=[0-9a-zA-Z]{8,}$
+if [[ $password =~ $passwordpattern1 ]]
+then
+        echo "Valid"
+else
+        echo "Invalid"
+	rule1
+fi
+}
+rule1
