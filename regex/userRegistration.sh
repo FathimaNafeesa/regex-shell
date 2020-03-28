@@ -35,6 +35,6 @@ if [[ $number =~ $numberpattern ]]
 then
         echo "Valid"
 else
-        echo "Invalid"
+        echo "Invalid number "
 fi
 
