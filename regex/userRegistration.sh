@@ -9,4 +9,14 @@ then
 else
 	echo "Invalid"
 fi
+echo "Enter your Last name"
+read lastname
+namepattern="^[A-Z][a-z]{2,}$"
+if [[ lastname =~ $namepattern ]]
+then
+        echo "Valid"
+else
+        echo "Invalid"
+fi
+
 
